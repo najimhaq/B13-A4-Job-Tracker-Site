@@ -79,7 +79,6 @@ function showInterviewJobs() {
     `;
     filterSec.appendChild(div);
   }
-
   // Delete icon call
   addDeleteListeners();
 }
@@ -116,7 +115,6 @@ function showRejectedJobs() {
     `;
     filterSec.appendChild(div);
   }
-
   // Delete icon 
   addDeleteListeners();
 }
@@ -234,7 +232,7 @@ mainContainer.addEventListener('click', (e) => {
     }
 
     interviewList.push(job);
-    console.log('✅ Interview List:', interviewList);
+    // console.log('✅ Interview List:', interviewList);
     calculateJobCount();
   }
 
