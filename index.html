@@ -46,32 +46,38 @@
       <section class="my-6">
         <h1 class="text-2xl font-bold text-[#002C5C] mb-5">Available Jobs</h1>
         <div class="flex gap-2.5">
-          <button onclick="toggleBtn('all-filter-btn')" id="all-filter-btn" class="px-7 bg-[#3B82F6] text-white btn">All</button>
-          <button onclick="toggleBtn('interview-filter-btn')" id="interview-filter-btn" class="btn text-[#64748B]">Interview</button>
-          <button onclick="toggleBtn('rejected-filter-btn')" id="rejected-filter-btn" class="btn text-[#64748B]">Rejected</button>
+          <button onclick="toggleBtn('all-filter-btn')" id="all-filter-btn" class="btn px-7 bg-[#3B82F6] text-white">
+            All
+          </button>
+          <button onclick="toggleBtn('interview-filter-btn')" id="interview-filter-btn" class="btn text-[#64748B]">
+            Interview
+          </button>
+          <button onclick="toggleBtn('rejected-filter-btn')" id="rejected-filter-btn" class="btn text-[#64748B]">
+            Rejected
+          </button>
         </div>
       </section>
       <section id="all-cards" class="grid grid-cols-1 gap-4">
         <!-- Card-1 -->
-        <div class="rounded-xl shadow p-6 border border-gray-100">
+        <div class="job1 rounded-xl shadow p-6 border border-gray-100">
           <div class="flex md:justify-between">
             <div>
               <div>
-                <h2 class="text-xl text-[#002C5C] font-medium mb-1">Shopify</h2>
-                <p class="text-[#64748B] mb-1">Frontend Developer (React)</p>
-                <p class="text-[#64748B] mb-5">Canada</p>
+                <h2 class="company text-xl text-[#002C5C] font-medium mb-1">Shopify</h2>
+                <p class="position text-[#64748B] mb-1">Frontend Developer (React)</p>
+                <p class="location text-[#64748B] mb-5">Canada</p>
               </div>
               <div>
-                <p class="text-[#64748B] mb-5">Remote • Full-time • $130,000 - $175,000</p>
-                <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
-                <p class="text-[#323B49] font-normal mb-7">
+                <p class="salary text-[#64748B] mb-5">Remote • Full-time • $130,000 - $175,000</p>
+                <button class="inner-apply-btn btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
+                <p class="descriptionJob text-[#323B49] font-normal mb-7">
                   Build cross-platform mobile applications using React Native. Work on products used by millions of
                   users worldwide.
                 </p>
               </div>
               <div>
-                <button class="btn btn-outline btn-success">interview</button>
-                <button class="btn btn-outline btn-secondary">Rejected</button>
+                <button id="inner-interview-btn" class="btn btn-outline btn-success">interview</button>
+                <button id="inner-rejected-btn" class="btn btn-outline btn-secondary">Rejected</button>
               </div>
             </div>
             <div>
@@ -82,22 +88,24 @@
           </div>
         </div>
         <!-- Card-2 -->
-        <div class="rounded-xl shadow p-6 border border-gray-100">
+        <div class="job2 rounded-xl shadow p-6 border border-gray-100">
           <div class="flex md:justify-between">
             <div>
               <div>
-                <h2 class="text-xl text-[#002C5C] font-medium mb-1">Netflix</h2>
-                <p class="text-[#64748B] mb-1">Senior JavaScript Engineer</p>
-                <p class="text-[#64748B] mb-5">Los Gatos, CA</p>
+                <h2 class="company text-xl text-[#002C5C] font-medium mb-1">Netflix</h2>
+                <p class="position text-[#64748B] mb-1">Senior JavaScript Engineer</p>
+                <p class="location text-[#64748B] mb-5">Los Gatos, CA</p>
               </div>
               <div>
-                <p class="text-[#64748B] mb-5">Remote • Full-time • $160,000 - $185,000</p>
-                <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
-                <p class="text-[#323B49] font-normal mb-7">Reached out to recruiter on LinkedIn before applying.</p>
+                <p class="salary text-[#64748B] mb-5">Remote • Full-time • $160,000 - $185,000</p>
+                <button class="inner-apply-btn btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
+                <p class="descriptionJob text-[#323B49] font-normal mb-7">
+                  Reached out to recruiter on LinkedIn before applying.
+                </p>
               </div>
               <div>
-                <button class="btn btn-outline btn-success">interview</button>
-                <button class="btn btn-outline btn-secondary">Rejected</button>
+                <button id="inner-interview-btn" class="btn btn-outline btn-success">interview</button>
+                <button id="inner-rejected-btn" class="btn btn-outline btn-secondary">Rejected</button>
               </div>
             </div>
             <div>
@@ -108,24 +116,24 @@
           </div>
         </div>
         <!-- Card-3 -->
-        <div class="rounded-xl shadow p-6 border border-gray-100">
+        <div class="job3 rounded-xl shadow p-6 border border-gray-100">
           <div class="flex md:justify-between">
             <div>
               <div>
-                <h2 class="text-xl text-[#002C5C] font-medium mb-1">Vercel</h2>
-                <p class="text-[#64748B] mb-1">Frontend Engineer (Next.js)</p>
-                <p class="text-[#64748B] mb-5">Stockholm, Sweden</p>
+                <h2 class="companytext-xl text-[#002C5C] font-medium mb-1">Vercel</h2>
+                <p class="position text-[#64748B] mb-1">Frontend Engineer (Next.js)</p>
+                <p class="location text-[#64748B] mb-5">Stockholm, Sweden</p>
               </div>
               <div>
-                <p class="text-[#64748B] mb-5">Hybrid • Full-time • $150,000 - $180,000</p>
-                <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
-                <p class="text-[#323B49] font-normal mb-7">
+                <p class="salary text-[#64748B] mb-5">Hybrid • Full-time • $150,000 - $180,000</p>
+                <button class="inner-apply-btn btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
+                <p class="descriptionJob text-[#323B49] font-normal mb-7">
                   Completed take-home assignment, waiting for panel interview.
                 </p>
               </div>
               <div>
-                <button class="btn btn-outline btn-success">interview</button>
-                <button class="btn btn-outline btn-secondary">Rejected</button>
+                <button id="inner-interview-btn" class="btn btn-outline btn-success">interview</button>
+                <button id="inner-rejected-btn" class="btn btn-outline btn-secondary">Rejected</button>
               </div>
             </div>
             <div>
@@ -136,24 +144,24 @@
           </div>
         </div>
         <!-- Card-4 -->
-        <div class="rounded-xl shadow p-6 border border-gray-100">
+        <div class="job4 rounded-xl shadow p-6 border border-gray-100">
           <div class="flex md:justify-between">
             <div>
               <div>
-                <h2 class="text-xl text-[#002C5C] font-medium mb-1">Global Finance Systems</h2>
-                <p class="text-[#64748B] mb-1">Lead UI Developer</p>
-                <p class="text-[#64748B] mb-5">Dublin, Ireland</p>
+                <h2 class="company text-xl text-[#002C5C] font-medium mb-1">Global Finance Systems</h2>
+                <p class="position text-[#64748B] mb-1">Lead UI Developer</p>
+                <p class="location text-[#64748B] mb-5">Dublin, Ireland</p>
               </div>
               <div>
-                <p class="text-[#64748B] mb-5">On-Site • Full-time • $165,000 - $200,000</p>
-                <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
+                <p class="salary text-[#64748B] mb-5">On-Site • Full-time • $165,000 - $200,000</p>
+                <button class="inner-apply-btn btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
                 <p class="text-[#323B49] font-normal mb-7">
                   Received offer! Negotiating salary and start date. Benefits package includes 401k matching.
                 </p>
               </div>
               <div>
-                <button class="btn btn-outline btn-success">interview</button>
-                <button class="btn btn-outline btn-secondary">Rejected</button>
+                <button id="inner-interview-btn" class="btn btn-outline btn-success">interview</button>
+                <button id="inner-rejected-btn" class="btn btn-outline btn-secondary">Rejected</button>
               </div>
             </div>
             <div>
@@ -164,24 +172,24 @@
           </div>
         </div>
         <!-- Card-5 -->
-        <div class="rounded-xl shadow p-6 border border-gray-100">
+        <div class="job5 rounded-xl shadow p-6 border border-gray-100">
           <div class="flex md:justify-between">
             <div>
               <div>
-                <h2 class="text-xl text-[#002C5C] font-medium mb-1">HealthTech Innovations</h2>
-                <p class="text-[#64748B] mb-1">Frontend Architect</p>
-                <p class="text-[#64748B] mb-5">Austin, TX</p>
+                <h2 class="company text-xl text-[#002C5C] font-medium mb-1">HealthTech Innovations</h2>
+                <p class="position text-[#64748B] mb-1">Frontend Architect</p>
+                <p class="location text-[#64748B] mb-5">Austin, TX</p>
               </div>
               <div>
-                <p class="text-[#64748B] mb-5">Remote • Full-time • $170,000 - $190,000</p>
-                <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
-                <p class="text-[#323B49] font-normal mb-7">
+                <p class="salary text-[#64748B] mb-5">Remote • Full-time • $170,000 - $190,000</p>
+                <button class="inner-apply-btn btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
+                <p class="descriptionJob text-[#323B49] font-normal mb-7">
                   Take-home assignment due in 5 days. Build a healthcare dashboard component.
                 </p>
               </div>
               <div>
-                <button class="btn btn-outline btn-success">interview</button>
-                <button class="btn btn-outline btn-secondary">Rejected</button>
+                <button id="inner-interview-btn" class="btn btn-outline btn-success">interview</button>
+                <button id="inner-rejected-btn" class="btn btn-outline btn-secondary">Rejected</button>
               </div>
             </div>
             <div>
@@ -192,24 +200,24 @@
           </div>
         </div>
         <!-- Card-6 -->
-        <div class="rounded-xl shadow p-6 border border-gray-100">
+        <div class="job6 rounded-xl shadow p-6 border border-gray-100">
           <div class="flex md:justify-between">
             <div>
               <div>
-                <h2 class="text-xl text-[#002C5C] font-medium mb-1">E-commerce Giants</h2>
-                <p class="text-[#64748B] mb-1">Senior UI Engineer</p>
-                <p class="text-[#64748B] mb-5">New York, NY</p>
+                <h2 class="company text-xl text-[#002C5C] font-medium mb-1">E-commerce Giants</h2>
+                <p class="position text-[#64748B] mb-1">Senior UI Engineer</p>
+                <p class="location text-[#64748B] mb-5">New York, NY</p>
               </div>
               <div>
-                <p class="text-[#64748B] mb-5">Hybrid • Full-time • $155,000 - $185,000</p>
-                <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
-                <p class="text-[#323B49] font-normal mb-7">
+                <p class="salary text-[#64748B] mb-5">Hybrid • Full-time • $155,000 - $185,000</p>
+                <button class="inner-apply-btn btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
+                <p class="descriptionJob text-[#323B49] font-normal mb-7">
                   Rejected after technical interview. Feedback: Need more experience with performance optimization.
                 </p>
               </div>
               <div>
-                <button class="btn btn-outline btn-success">interview</button>
-                <button class="btn btn-outline btn-secondary">Rejected</button>
+                <button id="inner-interview-btn" class="btn btn-outline btn-success">interview</button>
+                <button id="inner-rejected-btn" class="btn btn-outline btn-secondary">Rejected</button>
               </div>
             </div>
             <div>
@@ -220,24 +228,24 @@
           </div>
         </div>
         <!-- Card-7 -->
-        <div class="rounded-xl shadow p-6 border border-gray-100">
+        <div class="job7 rounded-xl shadow p-6 border border-gray-100">
           <div class="flex justify-between">
             <div>
               <div>
-                <h2 class="text-xl text-[#002C5C] font-medium mb-1">StartupXYZ</h2>
-                <p class="text-[#64748B] mb-1">Lead Frontend Developer</p>
-                <p class="text-[#64748B] mb-5">Boston, MA</p>
+                <h2 class="company text-xl text-[#002C5C] font-medium mb-1">StartupXYZ</h2>
+                <p class="position text-[#64748B] mb-1">Lead Frontend Developer</p>
+                <p class="location text-[#64748B] mb-5">Boston, MA</p>
               </div>
               <div>
-                <p class="text-[#64748B] mb-5">Remote(US Only) • Full-time • $140,000 - $170,000</p>
-                <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
-                <p class="text-[#323B49] font-normal mb-7">
+                <p class="salary text-[#64748B] mb-5">Remote(US Only) • Full-time • $140,000 - $170,000</p>
+                <button class="inner-apply-btn btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
+                <p class="descriptionJob text-[#323B49] font-normal mb-7">
                   Series A startup, 20 employees. Looking for someone to lead frontend team of 3.
                 </p>
               </div>
               <div>
-                <button class="btn btn-outline btn-success">interview</button>
-                <button class="btn btn-outline btn-secondary">Rejected</button>
+                <button id="inner-interview-btn" class="btn btn-outline btn-success">interview</button>
+                <button id="inner-rejected-btn" class="btn btn-outline btn-secondary">Rejected</button>
               </div>
             </div>
             <div>
@@ -248,24 +256,25 @@
           </div>
         </div>
         <!-- Card-8 -->
-        <div class="rounded-xl shadow p-6 border border-gray-100">
+        <div class="job8 rounded-xl shadow p-6 border border-gray-100">
           <div class="flex md:justify-between">
             <div>
               <div>
-                <h2 class="text-xl text-[#002C5C] font-medium mb-1">FinTech Pro</h2>
-                <p class="text-[#64748B] mb-1">Senior JavaScript Developer</p>
-                <p class="text-[#64748B] mb-5">Seattle, WA</p>
+                
+                <h2 class="company text-xl text-[#002C5C] font-medium mb-1">FinTech Pro</h2>
+                <p class="position text-[#64748B] mb-1">Senior JavaScript Developer</p>
+                <p class="location text-[#64748B] mb-5">Seattle, WA</p>
               </div>
               <div>
-                <p class="text-[#64748B] mb-5">Hybrid • Full-time • $145,000 - $170,000</p>
-                <button class="btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
-                <p class="text-[#323B49] font-normal mb-7">
+                <p class="salary text-[#64748B] mb-5">Hybrid • Full-time • $145,000 - $170,000</p>
+                <button class="inner-apply-btn btn btn-soft bg-[#EEF4FF] text-[#002C5C] mb-2">Not Applied</button>
+                <p class="descriptionJob text-[#323B49] font-normal mb-7">
                   Third round with team lead next week. They use micro-frontend architecture.
                 </p>
               </div>
               <div>
-                <button class="btn btn-outline btn-success">interview</button>
-                <button class="btn btn-outline btn-secondary">Rejected</button>
+                  <button id="inner-interview-btn" class="btn btn-outline btn-secondary">Rejected</button>
+                  <button id="inner-rejected-btn" class="btn btn-outline btn-success">interview</button>
               </div>
             </div>
             <div>
