@@ -47,133 +47,99 @@ function toggleBtn(id) {
   }
 }
 
-// 📱 **Responsive interview jobs function**
+// interview jobs function
 function showInterviewJobs() {
   filterSec.innerHTML = '';
 
   for (let job of interviewList) {
     let div = document.createElement('div');
-    div.className =
-      'job rounded-xl shadow p-4 sm:p-6 border border-gray-100 bg-white hover:shadow-lg transition-all duration-300';
+    div.className = 'job rounded-xl shadow p-6 border border-gray-100';
     div.innerHTML = `
-      <div class="flex flex-col md:flex-row md:justify-between relative">
-        <!-- Delete Icon - Mobile friendly -->
-        <div class="absolute top-2 right-2 md:static">
-          <i class="delete-icon ri-delete-bin-6-line text-[#64748B]/70 border-2 border-gray-200 rounded-full p-2 cursor-pointer hover:bg-red-50 hover:border-red-200 transition-all text-lg sm:text-xl" 
-             data-company="${job.company}" 
-             data-position="${job.position}"></i>
+      <div class="flex md:justify-between">
+        <div>
+          <div>
+            <h2 class="company text-xl text-[#002C5C] font-medium mb-1">${job.company}</h2>
+            <p class="position text-[#64748B] mb-1">${job.position}</p>
+            <p class="location text-[#64748B] mb-5">${job.location}</p>
+          </div>
+          <div>
+            <p class="salary text-[#64748B] mb-5">${job.salary}</p>
+            <button class="inner-apply-btn btn btn-soft bg-green-500 text-white mb-2">Applied</button>
+            <p class="descriptionJob text-[#323B49] font-normal mb-7">${job.description}</p>
+          </div>
+          <div>
+            <button class="btn bg-gray-400 text-white opacity-50 cursor-not-allowed" disabled>Interviewed</button>
+            <button class="btn bg-gray-400 text-white opacity-50 cursor-not-allowed" disabled>Rejected</button>
+          </div>
         </div>
-        
-        <div class="flex-1 pr-8 md:pr-0">
-          <!-- Company & Position -->
-          <div class="mb-3 sm:mb-4">
-            <h2 class="company text-lg sm:text-xl text-[#002C5C] font-medium mb-1">${job.company}</h2>
-            <p class="position text-sm sm:text-base text-[#64748B] mb-1">${job.position}</p>
-            <p class="location text-xs sm:text-sm text-[#64748B]">${job.location}</p>
-          </div>
-          
-          <!-- Salary & Applied Button -->
-          <div class="mb-3 sm:mb-4">
-            <p class="salary text-xs sm:text-sm text-[#64748B] mb-2 sm:mb-3">${job.salary}</p>
-            <button class="inner-apply-btn btn btn-soft bg-green-500 text-white text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2 mb-2">
-              Applied
-            </button>
-          </div>
-          
-          <!-- Description -->
-          <p class="descriptionJob text-xs sm:text-sm text-[#323B49] font-normal mb-4 sm:mb-6 leading-relaxed">
-            ${job.description}
-          </p>
-          
-          <!-- Action Buttons - Responsive -->
-          <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
-            <button class="btn bg-gray-400 text-white opacity-50 cursor-not-allowed text-xs sm:text-sm px-3 sm:px-4 py-2 flex-1 sm:flex-none" disabled>
-              Interviewed
-            </button>
-            <button class="btn bg-gray-400 text-white opacity-50 cursor-not-allowed text-xs sm:text-sm px-3 sm:px-4 py-2 flex-1 sm:flex-none" disabled>
-              Rejected
-            </button>
-          </div>
+        <div>
+          <i class="delete-icon ri-delete-bin-6-line text-[#64748B]/70 border-2 border-gray-200 rounded-full p-2 cursor-pointer" data-company="${job.company}" data-position="${job.position}"></i>
         </div>
       </div>
     `;
     filterSec.appendChild(div);
   }
 
+  // Delete icon এর জন্য event listener যোগ করি
   addDeleteListeners();
 }
 
-// 📱 **Responsive rejected jobs function**
+// শুধু রিজেক্টেড jobs দেখানোর ফাংশন
 function showRejectedJobs() {
   filterSec.innerHTML = '';
 
   for (let job of rejectedList) {
     let div = document.createElement('div');
-    div.className =
-      'job rounded-xl shadow p-4 sm:p-6 border border-gray-100 bg-white hover:shadow-lg transition-all duration-300';
+    div.className = 'job rounded-xl shadow p-6 border border-gray-100';
     div.innerHTML = `
-      <div class="flex flex-col md:flex-row md:justify-between relative">
-        <!-- Delete Icon - Mobile friendly -->
-        <div class="absolute top-2 right-2 md:static">
-          <i class="delete-icon ri-delete-bin-6-line text-[#64748B]/70 border-2 border-gray-200 rounded-full p-2 cursor-pointer hover:bg-red-50 hover:border-red-200 transition-all text-lg sm:text-xl" 
-             data-company="${job.company}" 
-             data-position="${job.position}"></i>
+      <div class="flex md:justify-between">
+        <div>
+          <div>
+            <h2 class="company text-xl text-[#002C5C] font-medium mb-1">${job.company}</h2>
+            <p class="position text-[#64748B] mb-1">${job.position}</p>
+            <p class="location text-[#64748B] mb-5">${job.location}</p>
+          </div>
+          <div>
+            <p class="salary text-[#64748B] mb-5">${job.salary}</p>
+            <button class="inner-apply-btn btn btn-soft bg-red-500 text-white mb-2">Rejected</button>
+            <p class="descriptionJob text-[#323B49] font-normal mb-7">${job.description}</p>
+          </div>
+          <div>
+            <button class="btn bg-gray-400 text-white opacity-50 cursor-not-allowed" disabled>Interview</button>
+            <button class="btn bg-gray-400 text-white opacity-50 cursor-not-allowed" disabled>Rejected</button>
+          </div>
         </div>
-        
-        <div class="flex-1 pr-8 md:pr-0">
-          <!-- Company & Position -->
-          <div class="mb-3 sm:mb-4">
-            <h2 class="company text-lg sm:text-xl text-[#002C5C] font-medium mb-1">${job.company}</h2>
-            <p class="position text-sm sm:text-base text-[#64748B] mb-1">${job.position}</p>
-            <p class="location text-xs sm:text-sm text-[#64748B]">${job.location}</p>
-          </div>
-          
-          <!-- Salary & Rejected Button -->
-          <div class="mb-3 sm:mb-4">
-            <p class="salary text-xs sm:text-sm text-[#64748B] mb-2 sm:mb-3">${job.salary}</p>
-            <button class="inner-apply-btn btn btn-soft bg-red-500 text-white text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2 mb-2">
-              Rejected
-            </button>
-          </div>
-          
-          <!-- Description -->
-          <p class="descriptionJob text-xs sm:text-sm text-[#323B49] font-normal mb-4 sm:mb-6 leading-relaxed">
-            ${job.description}
-          </p>
-          
-          <!-- Action Buttons - Responsive -->
-          <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
-            <button class="btn bg-gray-400 text-white opacity-50 cursor-not-allowed text-xs sm:text-sm px-3 sm:px-4 py-2 flex-1 sm:flex-none" disabled>
-              Interview
-            </button>
-            <button class="btn bg-gray-400 text-white opacity-50 cursor-not-allowed text-xs sm:text-sm px-3 sm:px-4 py-2 flex-1 sm:flex-none" disabled>
-              Rejected
-            </button>
-          </div>
+        <div>
+          <i class="delete-icon ri-delete-bin-6-line text-[#64748B]/70 border-2 border-gray-200 rounded-full p-2 cursor-pointer" data-company="${job.company}" data-position="${job.position}"></i>
         </div>
       </div>
     `;
     filterSec.appendChild(div);
   }
 
+  // Delete icon এর জন্য event listener যোগ করি
   addDeleteListeners();
 }
 
-// 🗑️ DELETE FUNCTIONALITY (unchanged)
+// 🗑️ **DELETE FUNCTIONALITY**
 function addDeleteListeners() {
+  // সব delete icon সিলেক্ট করি
   const deleteIcons = document.querySelectorAll('.delete-icon');
 
   deleteIcons.forEach((icon) => {
     icon.addEventListener('click', function (e) {
-      e.stopPropagation();
+      e.stopPropagation(); // Event bubbling বন্ধ করি
 
+      // Job এর তথ্য বের করি
       const company = this.dataset.company;
       const position = this.dataset.position;
 
+      // কনফার্মেশন নিই
       if (confirm(`Are you sure you want to delete ${position} at ${company}?`)) {
+        // কোন কার্ডে আছে সেটা বের করি
         const card = this.closest('.job');
 
-        // Interview List থেকে delete
+        // Interview List থেকে delete করি
         for (let i = 0; i < interviewList.length; i++) {
           if (interviewList[i].company === company && interviewList[i].position === position) {
             interviewList.splice(i, 1);
@@ -181,7 +147,7 @@ function addDeleteListeners() {
           }
         }
 
-        // Rejected List থেকে delete
+        // Rejected List থেকে delete করি
         for (let i = 0; i < rejectedList.length; i++) {
           if (rejectedList[i].company === company && rejectedList[i].position === position) {
             rejectedList.splice(i, 1);
@@ -189,17 +155,22 @@ function addDeleteListeners() {
           }
         }
 
+        // UI থেকে কার্ড remove করি
         if (card) {
           card.remove();
         }
 
+        // কাউন্ট আপডেট করি
         calculateJobCount();
+
+        // Success message
         alert(`✅ Deleted: ${position} at ${company}`);
 
-        // Filter view update
+        // যদি filter section খোলা থাকে, তাহলে আপডেট করি
         if (!totalCards.classList.contains('hidden')) {
-          // All cards view
+          // All cards view এ থাকলে কিছু করার দরকার নেই
         } else if (!filterSec.classList.contains('hidden')) {
+          // Filter view এ থাকলে রি-রেন্ডার করি
           if (interviewBtn.classList.contains('bg-[#3B82F6]')) {
             showInterviewJobs();
           } else if (rejectedBtn.classList.contains('bg-[#3B82F6]')) {
@@ -211,7 +182,7 @@ function addDeleteListeners() {
   });
 }
 
-// Main click handler (with responsive support)
+// Main click handler
 mainContainer.addEventListener('click', (e) => {
   // ===== INTERVIEW BUTTON =====
   if (e.target.id === 'inner-interview-btn') {
@@ -250,14 +221,12 @@ mainContainer.addEventListener('click', (e) => {
       }
     }
 
-    // Update apply button with responsive classes
     if (applyButton) {
       applyButton.textContent = 'Applied';
       applyButton.classList.remove('bg-[#EEF4FF]', 'text-[#002C5C]');
-      applyButton.classList.add('bg-green-500', 'text-white', 'text-xs', 'sm:text-sm');
+      applyButton.classList.add('bg-green-500', 'text-white');
     }
 
-    // Update interview button
     if (interviewButton) {
       interviewButton.disabled = true;
       interviewButton.textContent = 'Interviewed';
@@ -266,27 +235,17 @@ mainContainer.addEventListener('click', (e) => {
         'bg-gray-400',
         'text-white',
         'opacity-50',
-        'cursor-not-allowed',
-        'text-xs',
-        'sm:text-sm'
+        'cursor-not-allowed'
       );
     }
 
-    // Update rejected button
     if (rejectedButton) {
       rejectedButton.disabled = true;
       rejectedButton.classList.remove('btn-outline', 'btn-secondary');
-      rejectedButton.classList.add(
-        'bg-gray-400',
-        'text-white',
-        'opacity-50',
-        'cursor-not-allowed',
-        'text-xs',
-        'sm:text-sm'
-      );
+      rejectedButton.classList.add('bg-gray-400', 'text-white', 'opacity-50', 'cursor-not-allowed');
     }
 
-    // Add delete attributes
+    // Add delete attribute to the delete icon
     const deleteIcon = card.querySelector('.ri-delete-bin-6-line');
     if (deleteIcon) {
       deleteIcon.setAttribute('data-company', job.company);
@@ -336,29 +295,19 @@ mainContainer.addEventListener('click', (e) => {
       }
     }
 
-    // Update apply button
     if (applyButton) {
       applyButton.textContent = 'Rejected';
       applyButton.classList.remove('bg-[#EEF4FF]', 'text-[#002C5C]');
-      applyButton.classList.add('bg-red-500', 'text-white', 'text-xs', 'sm:text-sm');
+      applyButton.classList.add('bg-red-500', 'text-white');
     }
 
-    // Update rejected button
     if (rejectedButton) {
       rejectedButton.disabled = true;
       rejectedButton.textContent = 'Rejected';
       rejectedButton.classList.remove('btn-outline', 'btn-secondary');
-      rejectedButton.classList.add(
-        'bg-gray-400',
-        'text-white',
-        'opacity-50',
-        'cursor-not-allowed',
-        'text-xs',
-        'sm:text-sm'
-      );
+      rejectedButton.classList.add('bg-gray-400', 'text-white', 'opacity-50', 'cursor-not-allowed');
     }
 
-    // Update interview button
     if (interviewButton) {
       interviewButton.disabled = true;
       interviewButton.classList.remove('btn-outline', 'btn-success');
@@ -366,13 +315,11 @@ mainContainer.addEventListener('click', (e) => {
         'bg-gray-400',
         'text-white',
         'opacity-50',
-        'cursor-not-allowed',
-        'text-xs',
-        'sm:text-sm'
+        'cursor-not-allowed'
       );
     }
 
-    // Add delete attributes
+    // Add delete attribute to the delete icon
     const deleteIcon = card.querySelector('.ri-delete-bin-6-line');
     if (deleteIcon) {
       deleteIcon.setAttribute('data-company', job.company);
@@ -385,17 +332,18 @@ mainContainer.addEventListener('click', (e) => {
     calculateJobCount();
   }
 
-  // ===== DELETE ICON =====
+  // ===== DELETE ICON (Original cards-এর জন্য) =====
   if (e.target.classList.contains('ri-delete-bin-6-line')) {
     const deleteIcon = e.target;
     const card = deleteIcon.closest('.job');
     if (!card) return;
 
+    // Job details বের করি
     const company = card.querySelector('.company')?.textContent;
     const position = card.querySelector('.position')?.textContent;
 
     if (confirm(`Are you sure you want to delete this job?`)) {
-      // Interview List থেকে delete
+      // Interview List থেকে খুঁজে বের করে delete করি
       for (let i = 0; i < interviewList.length; i++) {
         if (interviewList[i].company === company && interviewList[i].position === position) {
           interviewList.splice(i, 1);
@@ -403,7 +351,7 @@ mainContainer.addEventListener('click', (e) => {
         }
       }
 
-      // Rejected List থেকে delete
+      // Rejected List থেকে খুঁজে বের করে delete করি
       for (let i = 0; i < rejectedList.length; i++) {
         if (rejectedList[i].company === company && rejectedList[i].position === position) {
           rejectedList.splice(i, 1);
@@ -411,10 +359,13 @@ mainContainer.addEventListener('click', (e) => {
         }
       }
 
+      // কার্ড remove করি
       card.remove();
+
+      // কাউন্ট আপডেট করি
       calculateJobCount();
+
       alert('✅ Job deleted successfully!');
     }
   }
 });
-
