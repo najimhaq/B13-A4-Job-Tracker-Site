@@ -80,11 +80,11 @@ function showInterviewJobs() {
     filterSec.appendChild(div);
   }
 
-  // Delete icon এর জন্য event listener যোগ করি
+  // Delete icon call
   addDeleteListeners();
 }
 
-// শুধু রিজেক্টেড jobs দেখানোর ফাংশন
+// only Rejected
 function showRejectedJobs() {
   filterSec.innerHTML = '';
 
@@ -117,74 +117,54 @@ function showRejectedJobs() {
     filterSec.appendChild(div);
   }
 
-  // Delete icon এর জন্য event listener যোগ করি
+  // Delete icon 
   addDeleteListeners();
 }
 
-// 🗑️ **DELETE FUNCTIONALITY**
+// Delete function
 function addDeleteListeners() {
-  // সব delete icon সিলেক্ট করি
   const deleteIcons = document.querySelectorAll('.delete-icon');
 
   deleteIcons.forEach((icon) => {
-    icon.addEventListener('click', function (e) {
-      e.stopPropagation(); // Event bubbling বন্ধ করি
+    icon.addEventListener('click', (e) => {
+      e.stopPropagation();
 
-      // Job এর তথ্য বের করি
-      const company = this.dataset.company;
-      const position = this.dataset.position;
+      // Find the card
+      const card = icon.closest('.job');
+      if (!card) return;
 
-      // কনফার্মেশন নিই
-      if (confirm(`Are you sure you want to delete ${position} at ${company}?`)) {
-        // কোন কার্ডে আছে সেটা বের করি
-        const card = this.closest('.job');
+      // Get job info
+      const company = icon.dataset.company;
+      const position = icon.dataset.position;
 
-        // Interview List থেকে delete করি
-        for (let i = 0; i < interviewList.length; i++) {
-          if (interviewList[i].company === company && interviewList[i].position === position) {
-            interviewList.splice(i, 1);
-            break;
-          }
-        }
+      // Confirm delete
+      if (!confirm(`Delete ${position} at ${company}?`)) return;
 
-        // Rejected List থেকে delete করি
-        for (let i = 0; i < rejectedList.length; i++) {
-          if (rejectedList[i].company === company && rejectedList[i].position === position) {
-            rejectedList.splice(i, 1);
-            break;
-          }
-        }
+      // Remove from interviewList
+      interviewList = interviewList.filter(
+        (job) => !(job.company === company && job.position === position)
+      );
 
-        // UI থেকে কার্ড remove করি
-        if (card) {
-          card.remove();
-        }
+      // Remove from rejectedList
+      rejectedList = rejectedList.filter(
+        (job) => !(job.company === company && job.position === position)
+      );
 
-        // কাউন্ট আপডেট করি
-        calculateJobCount();
+      // Remove card from UI
+      card.remove();
 
-        // Success message
-        alert(`✅ Deleted: ${position} at ${company}`);
+      // Update count
+      calculateJobCount();
 
-        // যদি filter section খোলা থাকে, তাহলে আপডেট করি
-        if (!totalCards.classList.contains('hidden')) {
-          // All cards view এ থাকলে কিছু করার দরকার নেই
-        } else if (!filterSec.classList.contains('hidden')) {
-          // Filter view এ থাকলে রি-রেন্ডার করি
-          if (interviewBtn.classList.contains('bg-[#3B82F6]')) {
-            showInterviewJobs();
-          } else if (rejectedBtn.classList.contains('bg-[#3B82F6]')) {
-            showRejectedJobs();
-          }
-        }
-      }
+      alert(`✅ Deleted: ${position} at ${company}`);
     });
   });
 }
 
+
 // Main click handler
 mainContainer.addEventListener('click', (e) => {
-  // ===== INTERVIEW BUTTON =====
+  // INTERVIEW BUTTON 
   if (e.target.id === 'inner-interview-btn') {
     const interviewButton = e.target;
     const card = e.target.closest('.job');
@@ -258,7 +238,7 @@ mainContainer.addEventListener('click', (e) => {
     calculateJobCount();
   }
 
-  // ===== REJECTED BUTTON =====
+  //  REJECTED BUTTON 
   if (e.target.id === 'inner-rejected-btn') {
     const rejectedButton = e.target;
     const card = e.target.closest('.job');
@@ -332,7 +312,7 @@ mainContainer.addEventListener('click', (e) => {
     calculateJobCount();
   }
 
-  // ===== DELETE ICON (Original cards-এর জন্য) =====
+  // Delete icon work main card 
   if (e.target.classList.contains('ri-delete-bin-6-line')) {
     const deleteIcon = e.target;
     const card = deleteIcon.closest('.job');
