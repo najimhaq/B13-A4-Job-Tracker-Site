@@ -52,12 +52,20 @@
           <button onclick="toggleBtn('interview-filter-btn')" id="interview-filter-btn" class="btn text-[#64748B]">
             Interview
           </button>
+          
           <button onclick="toggleBtn('rejected-filter-btn')" id="rejected-filter-btn" class="btn text-[#64748B]">
             Rejected
           </button>
         </div>
       </section>
       <section id="filtered-section" class='hidden'></section>
+      <!-- No Job Section -->
+      <section id="noJob-section" class="flex flex-col items-center px-6 py-28 space-y-1 hidden">
+        <img src="./jobs.png" alt="">
+        <h2>No jobs available</h2>
+        <p>Check back soon for new job opportunities</p>
+      </section>
+      <!-- All Job Section -->
       <section id="all-cards" class="grid grid-cols-1 gap-4">
         <!-- Card-1 -->
         <div class="job rounded-xl shadow p-6 border border-gray-100">
